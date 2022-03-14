@@ -1,5 +1,5 @@
 import React from 'react';
-import { JoinButton } from '../components/index'
+import { JoinButton } from '../index'
 import {
   FormControl,
   FormLabel,
