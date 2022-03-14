@@ -2,7 +2,7 @@ import React from 'react';
 // import { Switch, Route } from 'react-router-dom';
 import '@chakra-ui/react'
 
-import { JoinButton, CreateButton, Signin } from './components';
+import { JoinButton, CreateButton, Signin, Topics } from './components';
 
 function App() {
 return (
@@ -10,6 +10,7 @@ return (
 	<JoinButton />
 	<CreateButton />	
 	<Signin />
+	<Topics />
 	{/* <div>
 		<NavBar />
 				<Switch>

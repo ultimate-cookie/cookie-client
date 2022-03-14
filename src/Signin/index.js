@@ -1,11 +1,9 @@
 import React from 'react';
-import { JoinButton } from '../index'
+import { JoinButton } from '../components/index'
 import {
   FormControl,
   FormLabel,
-  Input,
-  // FormErrorMessage,
-  // FormHelperText,
+  Input
 } from '@chakra-ui/react'
 
 const Signin = () => {
