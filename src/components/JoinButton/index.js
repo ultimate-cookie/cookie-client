@@ -9,12 +9,5 @@ const JoinButton = () => {
   </>
 )};
 
-const CreateButton = () => {
-  return(
-  <>
-  <Button colorScheme="blue" size="lg" variant='ghost'>Create Lobby</Button>
-  
-  </>
-  )};
 
-export default { JoinButton, CreateButton };
+export default JoinButton ;

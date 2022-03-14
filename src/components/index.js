@@ -1,3 +1,3 @@
-export { default as CreateButton } from './Buttons'
-export { default as JoinButton } from './Buttons'
+export { default as CreateButton } from './CreateButton'
+export { default as JoinButton } from './JoinButton'
 
