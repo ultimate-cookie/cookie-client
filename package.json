@@ -45,6 +45,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@chakra-ui/form-control": "^1.5.9",
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",

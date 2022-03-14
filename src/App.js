@@ -1,15 +1,15 @@
 import React from 'react';
 // import { Switch, Route } from 'react-router-dom';
+import '@chakra-ui/react'
 
-import { JoinButton, CreateButton } from './components';
+import { JoinButton, CreateButton, Signin } from './components';
 
 function App() {
 return (
 <>
 	<JoinButton />
-	<CreateButton />
-
-	
+	<CreateButton />	
+	<Signin />
 	{/* <div>
 		<NavBar />
 				<Switch>
