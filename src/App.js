@@ -1,21 +1,25 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+// import { Switch, Route } from 'react-router-dom';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { JoinButton, CreateButton } from './components';
 
 function App() {
-    return (
-        <Router>
-            <div>
-                <NavBar />
-                    <Switch>
-                        <Route exact path="/" />
-                        <Route path="/abc" />
-                        <Route path="/xyz" />
-                    </Switch>
-            </div>
-        </Router>
-    )
+return (
+<>
+	<JoinButton />
+	<CreateButton />
+
+	
+	{/* <div>
+		<NavBar />
+				<Switch>
+						<Route exact path="/" />
+						<Route path="/abc" />
+						<Route path="/xyz" />
+				</Switch>
+	</div> */}
+</>
+)
 }
 
 export default App;
