@@ -1,21 +1,21 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Home } from './pages'
-import { Header, Footer } from './layout'
-
-const App = () => {
-return(
-<>
-  <Header />
-  <Switch>
-    <Route exact path='/'><Home /></Route>
-    {/* <Route path='/'>< /></Route> */}
-  </Switch>
-  <Footer />
-</>
-)};
+function App() {
+    return (
+        <Router>
+            <div>
+                <NavBar />
+                    <Switch>
+                        <Route exact path="/" />
+                        <Route path="/abc" />
+                        <Route path="/xyz" />
+                    </Switch>
+            </div>
+        </Router>
+    )
+}
 
 export default App;
