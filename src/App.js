@@ -17,13 +17,16 @@ function App() {
   return (
     <Router>
       {/* <NavBar /> */}
-      <NavBar />
+      <Link to="/">
+        <NavBar />
+      </Link>
       <Switch>
         <Route exact path="/">
           <Welcome />
         </Route>
         <Route path="/create">
           <CreateLobby />
+          <QuizDetails />
         </Route>
         <Route path="/join">
           <JoinLobby />
@@ -34,6 +37,9 @@ function App() {
         </Route>
         <Route path="/play">
           <Quiz />
+        </Route>
+        <Route path="/endScreen">
+          <Roundup>
         </Route>
     */}
       </Switch>
