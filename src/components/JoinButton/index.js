@@ -4,8 +4,7 @@ import { Button } from '@chakra-ui/button';
 const JoinButton = () => {
   return(
   <>
-  <Button colorScheme="blue" size="lg" variant='ghost'>Join Lobby</Button>
-
+  <Button size="lg" bg="#ffd0d0" m='3' p='4'>Join Lobby</Button>
   </>
 )};
 
