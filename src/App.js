@@ -1,26 +1,43 @@
-import React from 'react';
+import React from "react";
 // import { Switch, Route } from 'react-router-dom';
-import '@chakra-ui/react'
+import "@chakra-ui/react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { 
-	// JoinButton, 
-	// CreateButton, 
-	CreateLobby,
-	JoinLobby, 
-	QuizDetails, 
-	Welcome,
-	// NavBar 
-} from './components';
+import {
+  // JoinButton,
+  // CreateButton,
+  CreateLobby,
+  JoinLobby,
+  QuizDetails,
+  Welcome,
+  NavBar,
+} from "./components";
 
 function App() {
-return (
-<>
-	{/* <NavBar /> */}
-	<CreateLobby />
-	<JoinLobby />
-	<QuizDetails />
-	<Welcome />
-	{/* <div>
+  return (
+    <Router>
+      {/* <NavBar /> */}
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <Welcome />
+        </Route>
+        <Route path="/create">
+          <CreateLobby />
+        </Route>
+        <Route path="/join">
+          <JoinLobby />
+        </Route>
+        {/*
+        <Route path="/lobby">
+          <Lobby />
+        </Route>
+        <Route path="/play">
+          <Quiz />
+        </Route>
+    */}
+      </Switch>
+      {/* <div>
 		<NavBar />
 				<Switch>
 						<Route exact path="/" />
@@ -28,8 +45,8 @@ return (
 						<Route path="/xyz" />
 				</Switch>
 	</div> */}
-</>
-)
+    </Router>
+  );
 }
 
 export default App;
