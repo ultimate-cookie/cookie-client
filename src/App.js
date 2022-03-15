@@ -3,11 +3,12 @@ import React from 'react';
 import '@chakra-ui/react'
 
 import { 
-	JoinButton, 
-	CreateButton, 
-	Signin, 
-	Topics, 
-	Welcome
+	// JoinButton, 
+	// CreateButton, 
+	CreateLobby,
+	JoinLobby, 
+	QuizDetails, 
+	Welcome,
 	// NavBar 
 } from './components';
 
@@ -15,10 +16,9 @@ function App() {
 return (
 <>
 	{/* <NavBar /> */}
-	<JoinButton />
-	<CreateButton />	
-	<Signin />
-	<Topics />
+	<CreateLobby />
+	<JoinLobby />
+	<QuizDetails />
 	<Welcome />
 	{/* <div>
 		<NavBar />
