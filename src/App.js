@@ -11,6 +11,7 @@ import {
   QuizDetails,
   Welcome,
   NavBar,
+  PlayerList,
 } from "./components";
 
 function App() {
@@ -31,10 +32,10 @@ function App() {
         <Route path="/join">
           <JoinLobby />
         </Route>
-        {/*
         <Route path="/lobby">
-          <Lobby />
+          <PlayerList />
         </Route>
+        {/*
         <Route path="/play">
           <Quiz />
         </Route>
