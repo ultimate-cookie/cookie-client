@@ -12,6 +12,7 @@ import {
   Welcome,
   NavBar,
   PlayerList,
+  Quiz,
 } from "./components";
 
 function App() {
@@ -35,10 +36,10 @@ function App() {
         <Route path="/lobby">
           <PlayerList />
         </Route>
-        {/*
         <Route path="/play">
           <Quiz />
         </Route>
+        {/*
         <Route path="/endScreen">
           <Roundup>
         </Route>

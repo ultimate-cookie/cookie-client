@@ -6,6 +6,7 @@ import {
   Input
 } from '@chakra-ui/react'
 import { Container, Heading } from '@chakra-ui/layout';
+import { Link } from 'react-router-dom';
 
 const CreateLobby = () => {
 return(
@@ -19,7 +20,9 @@ return(
     <Input isRequired id='password' placeholder='Password' bg="#ffd0d0"/>
     <FormLabel htmlFor='lobbyname'></FormLabel>
     <Input isRequired id='lobbyname' placeholder='Lobby Name' bg="#ffd0d0" />
-    <CreateButton />
+    <Link to="/lobby">
+      <CreateButton />
+    </Link>
   </FormControl>
 </Container>
 </>
