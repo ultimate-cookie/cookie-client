@@ -1,8 +1,15 @@
 import { default as Home } from ".";
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
 
 describe("Home", () => {
-  beforeEach(() => render(<Home />));
+  beforeEach(() =>
+    render(
+      <Router>
+        <Home />
+      </Router>
+    )
+  );
 
   it("renders create lobby button", () => {
     const create = screen.queryByText("Create Lobby");
