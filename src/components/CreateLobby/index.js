@@ -2,14 +2,15 @@ import React from "react";
 import { CreateButton } from "../index";
 import { FormControl, FormLabel, Input, Center } from "@chakra-ui/react";
 import { Container, Heading } from "@chakra-ui/layout";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { useState } from "react";
-import { io } from "socket.io-client";
 import { quizReducer } from "../../reducers";
+import { render } from "react-dom";
 
 const CreateLobby = ({ socket }) => {
   const [room, setRoom] = useState("");
   const [username, setUsername] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
   // create lobby event listener
   const onSubmitEvent = (e) => {
@@ -18,13 +19,12 @@ const CreateLobby = ({ socket }) => {
     // get lobby name and username
     socket.emit("joinLobby", { username, room });
 
-    socket.on("message", ({ username, room }) => {
-      console.log({ username, room });
-    });
+    setRedirect(true);
   };
 
   return (
     <>
+      {redirect ? <Redirect to="/lobby" /> : undefined}
       <Center mt={10}>
         <Container
           id="create"
@@ -68,8 +68,6 @@ const CreateLobby = ({ socket }) => {
               />
               <Center>
                 <CreateButton />
-                {/* <Link to="/lobby">
-                </Link> */}
               </Center>
             </FormControl>
           </form>

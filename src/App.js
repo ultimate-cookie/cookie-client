@@ -19,6 +19,10 @@ import {
 
 const socket = io("http://localhost:7000");
 function App() {
+  socket.on("playerList", (str) => {
+    console.log(str);
+    // append new users to playerList
+  });
   return (
     <>
       <TopBar />
