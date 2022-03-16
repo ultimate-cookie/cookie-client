@@ -11,22 +11,32 @@ export const getScore = (score) => ({
     payload: score
 });
 
-export const loadQuestion = () => ({ 
-    type: 'LOAD_QUESTION',
-    payload: {}
-});
+// export const loadQuestion = () => ({ 
+//     type: 'LOAD_QUESTION',
+//     payload: {}
+// });
 
-export const endQuestion = () => ({ 
+export const endQuestion = (correctAnswer) => ({ 
     type: 'END_QUESTION',
-    payload: {}
+    payload: correctAnswer
 });
 
-export const nextQuestion = () => ({
+export const nextQuestion = (nextQ) => ({
     type: 'NEXT_QUESTION',
-    payload: {}
+    payload: nextQ
 })
 
-export const setError = () => ({
+export const setError = (error) => ({
     type: 'SET_ERROR',
-    payload: {} 
+    payload: error 
+});
+
+export const submittingQuestionWrong = (incorrectAnswer) => ({
+    type: 'SET_ERROR',
+    payload: incorrectAnswer 
+});
+
+export const joiningRoom = (roomName) => ({
+    type: 'SET_ERROR',
+    payload: roomName 
 });
