@@ -4,7 +4,7 @@ const initState = {
     player_name: "",
     category: "", 
     difficulty: "", 
-    time_limit: "", 
+    time_limit: -1,
     number_of_questions: 10,
     score: 0,
     question_index: 0,
@@ -24,34 +24,30 @@ const initState = {
                 difficulty: action.payload.difficulty,
                 time_limit: action.payload.time_limit,
                 number_of_questions: action.payload.number_of_questions,
-                score: action.payload.score,
-                question_index: action.payload.question_index,
-                loading: action.payload.loading
-
                 };
         }
         case 'GET_SCORE' :
-            return {...state.score}
+            return {...state,
+                    action.payload.score
+                }
 
         case 'LOAD_QUESTION' :
             return {...state,
                     question_index: 0,
-                    loading: true
             }
 
-        case 'JOINING_ROOM' : 
+        case 'JOIN_ROOM' : 
             return {...state,
-                    room_name: action.payload,
-                    loading: true
+                    room_name: action.payload.room_name,
             }
 
-        case 'SUBMITTING_QUESTION_WRONG' : 
-            console.log(action.payload);
-            if (chosenAnswer !== correctAnswer)
+        // case 'SUBMIT_QUESTION' : 
+        //     console.log(action.payload);
+        //     if (chosenAnswer !== correctAnswer)
                 
-            return {...state,
-                    error: action.payload
-            }
+        //     return {...state,
+        //             error: action.payload
+        //     }
 
         case 'END_QUESTION' :
             console.log(action.payload);
@@ -62,13 +58,12 @@ const initState = {
                     score: playerScore,
             }
 
-        case 'NEXT_QUESTION' :
-            console.log(action.payload);
-            const nextQuestion = state.question_index + 1;
-            return {...state,
-                    question_index: nextQuestion,
-                    loading: true
-            }
+        // case 'NEXT_QUESTION' :
+        //     console.log(action.payload);
+        //     const nextQuestion = state.question_index + 1;
+        //     return {...state,
+        //             question_index: nextQuestion,
+        //     }
 
         case 'SET_ERROR' : 
             return {...state,
