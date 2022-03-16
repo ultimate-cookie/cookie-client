@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { Switch, Route } from 'react-router-dom';
 import "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { io } from "socket.io-client";
 
 import {
   // JoinButton,
@@ -17,6 +18,16 @@ import {
 } from "./components";
 
 function App() {
+  const connect = () => {
+    const socket = io("http://localhost:7000");
+  };
+
+  useEffect(() => {
+    console.log("useEffect before");
+    connect();
+    console.log("useEffect after");
+  }, []);
+
   return (
     <>
       <TopBar />
