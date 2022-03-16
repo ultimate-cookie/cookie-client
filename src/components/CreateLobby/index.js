@@ -5,19 +5,16 @@ import { Container, Heading } from "@chakra-ui/layout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { io } from "socket.io-client";
+import { quizReducer } from "../../reducers";
 
-const CreateLobby = () => {
+const CreateLobby = ({ socket }) => {
   const [room, setRoom] = useState("");
   const [username, setUsername] = useState("");
-  const socket = io();
 
   // create lobby event listener
   const onSubmitEvent = (e) => {
     e.preventDefault();
 
-    console.log(username, room);
-    console.log("This is the new lobbyName", room);
-    console.log("This is the new useerName", username);
     // get lobby name and username
     socket.emit("joinLobby", { username, room });
 

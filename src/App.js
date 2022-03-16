@@ -18,7 +18,6 @@ import {
 } from "./components";
 
 const socket = io("http://localhost:7000");
-socket.emit("joinLobby", { username: "test", room: "101" });
 function App() {
   return (
     <>
@@ -29,7 +28,7 @@ function App() {
             <Welcome />
           </Route>
           <Route path="/create">
-            <CreateLobby />
+            <CreateLobby socket={socket} />
             <QuizDetails />
           </Route>
           <Route path="/join">
