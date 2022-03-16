@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 // import { Switch, Route } from 'react-router-dom';
-import '@chakra-ui/react'
+import "@chakra-ui/react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import { 
 	// JoinButton, 
@@ -9,27 +10,50 @@ import {
 	JoinLobby, 
 	QuizDetails, 
 	Welcome,
-	// NavBar 
+	TopBar,
+  PlayerList,
+  Quiz,
 } from './components';
 
 function App() {
 return (
 <>
-	{/* <NavBar /> */}
+	<TopBar />
 	<CreateLobby />
-	<JoinLobby />
+	{/* <JoinLobby /> */}
 	<QuizDetails />
-	<Welcome />
-	{/* <div>
-		<NavBar />
-				<Switch>
-						<Route exact path="/" />
-						<Route path="/abc" />
-						<Route path="/xyz" />
-				</Switch>
-	</div> */}
-</>
-)
+	{/* <Welcome /> */}
+
+  <Router>
+    <Link to="/">
+      <TopBar />
+    </Link>
+    <Switch>
+      <Route exact path="/">
+        <Welcome />
+      </Route>
+      <Route path="/create">
+        <CreateLobby />
+        <QuizDetails />
+      </Route>
+      <Route path="/join">
+        <JoinLobby />
+      </Route>
+      <Route path="/lobby">
+        <PlayerList />
+      </Route>
+      <Route path="/play">
+        <Quiz />
+      </Route>
+    {/*
+      <Route path="/endScreen">
+        <Roundup>
+      </Route>
+    */}
+      </Switch>
+    </Router>
+  </>
+  );
 }
 
 export default App;
