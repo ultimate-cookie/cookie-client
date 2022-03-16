@@ -14,12 +14,15 @@ import {
   Welcome,
   PlayerList,
   Quiz,
+  DarkMode
 } from "./components";
+// import { DarkMode } from "@chakra-ui/react";
 
 function App() {
   return (
     <>
       <TopBar />
+      <DarkMode />
       <Router>
         <Switch>
           <Route exact path="/">
