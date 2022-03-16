@@ -3,7 +3,15 @@
 export const setting = (room_name, room_size, player_name, category, difficulty,question_type, number_of_questions) => (
     { 
         type: 'SETTING', 
-        payload: { room_name, room_size, player_name, category, difficulty,question_type, number_of_questions } 
+        payload: {  
+            room_name,
+            room_size, 
+            player_name, 
+            category, 
+            difficulty,
+            question_type, 
+            number_of_questions 
+        } 
     });
 
 export const getScore = (score) => ({ 
@@ -11,22 +19,32 @@ export const getScore = (score) => ({
     payload: score
 });
 
-export const loadQuestion = () => ({ 
+export const loadQuestion = (firstQ) => ({ 
     type: 'LOAD_QUESTION',
-    payload: {}
+    payload: firstQ
 });
 
-export const endQuestion = () => ({ 
+export const endQuestion = (correctAnswer) => ({ 
     type: 'END_QUESTION',
-    payload: {}
+    payload: correctAnswer
 });
 
-export const nextQuestion = () => ({
-    type: 'NEXT_QUESTION',
-    payload: {}
-})
+// export const nextQuestion = (nextQ) => ({
+//     type: 'NEXT_QUESTION',
+//     payload: nextQ
+// })
 
-export const setError = () => ({
+export const setError = (error) => ({
     type: 'SET_ERROR',
-    payload: {} 
+    payload: error 
+});
+
+export const submitQuestion = (submitAnswer) => ({
+    type: 'SUBMIT_QUESTION',
+    payload: submitAnswer 
+});
+
+export const joinRoom = (roomName) => ({
+    type: 'NEXT_QUESTION',
+    payload: roomName 
 });
