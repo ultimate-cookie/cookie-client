@@ -18,11 +18,11 @@ import {
 function App() {
 return (
 <>
-	<TopBar />
+	{/* <TopBar />
 	<CreateLobby />
-	{/* <JoinLobby /> */}
+	{/* <JoinLobby /> 
 	<QuizDetails />
-	{/* <Welcome /> */}
+	<Welcome /> */}
 
   <Router>
     <Link to="/">
