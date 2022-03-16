@@ -10,3 +10,4 @@ export { default as TopBar } from "./TopBar";
 export { default as Welcome } from "./Welcome";
 export { default as PlayerList } from "./PlayerList";
 export { default as Quiz } from "./Quiz";
+export { default as Roundup } from "./Roundup";
