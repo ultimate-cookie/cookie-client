@@ -12,7 +12,6 @@ import {
   JoinLobby,
   QuizDetails,
   Welcome,
-  NavBar,
   PlayerList,
   Quiz,
 } from "./components";
@@ -21,11 +20,6 @@ function App() {
   return (
     <>
       <TopBar />
-      {/* <CreateLobby />
-	<JoinLobby />
-	<QuizDetails />
-	<Welcome /> */}
-
       <Router>
         <Switch>
           <Route exact path="/">
