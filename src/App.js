@@ -9,17 +9,17 @@ import {
 	JoinLobby, 
 	QuizDetails, 
 	Welcome,
-	// NavBar 
+	TopBar 
 } from './components';
 
 function App() {
 return (
 <>
-	{/* <NavBar /> */}
+	<TopBar />
 	<CreateLobby />
-	<JoinLobby />
+	{/* <JoinLobby /> */}
 	<QuizDetails />
-	<Welcome />
+	{/* <Welcome /> */}
 	{/* <div>
 		<NavBar />
 				<Switch>
