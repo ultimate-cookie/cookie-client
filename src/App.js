@@ -17,17 +17,9 @@ import {
   Quiz,
 } from "./components";
 
+const socket = io("http://localhost:7000");
+socket.emit("joinLobby", { username: "test", room: "101" });
 function App() {
-  const connect = () => {
-    const socket = io("http://localhost:7000");
-  };
-
-  useEffect(() => {
-    console.log("useEffect before");
-    connect();
-    console.log("useEffect after");
-  }, []);
-
   return (
     <>
       <TopBar />
