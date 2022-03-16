@@ -27,7 +27,7 @@ return(
       <Input isRequired className='lobbyname' placeholder='Lobby Name' bg="#ffd0d0" />
       <Center>
         <Link to="/lobby">
-        <JoinButton />
+          <JoinButton />
         </Link>
       </Center>
     </FormControl>
