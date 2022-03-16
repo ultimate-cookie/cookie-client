@@ -57,5 +57,26 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "arrowParens": "always",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "embeddedLanguageFormatting": "auto",
+    "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": false,
+    "printWidth": 80,
+    "proseWrap": "preserve",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "semi": true,
+    "singleQuote": false,
+    "useTabs": false,
+    "vueIndentScriptAndStyle": false
   }
 }
