@@ -7,6 +7,7 @@ import {
   Center,
 } from '@chakra-ui/react'
 import { Container, Heading } from '@chakra-ui/layout';
+import { Link } from 'react-router-dom';
 
 const CreateLobby = () => {
 return(
