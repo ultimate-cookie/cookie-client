@@ -7,6 +7,7 @@ import {
   Center
 } from '@chakra-ui/react'
 import { Container, Heading } from '@chakra-ui/layout';
+import { Link } from 'react-router-dom';
 
 const JoinLobby = () => {
 return(
@@ -25,7 +26,9 @@ return(
       <FormLabel htmlFor='lobbyname'></FormLabel>
       <Input isRequired className='lobbyname' placeholder='Lobby Name' bg="#ffd0d0" />
       <Center>
+        <Link to="/lobby">
         <JoinButton />
+        </Link>
       </Center>
     </FormControl>
   </Container>
