@@ -33,8 +33,11 @@ const initState = {
         case 'GET_SCORE' :
             return {...state.score}
 
-        // case 'LOAD_QUESTION' :
-        //     return {}
+        case 'LOAD_QUESTION' :
+            return {...state,
+                    question_index: 0,
+                    loading: true
+            }
 
         case 'JOINING_ROOM' : 
             return {...state,

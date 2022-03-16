@@ -11,10 +11,10 @@ export const getScore = (score) => ({
     payload: score
 });
 
-// export const loadQuestion = () => ({ 
-//     type: 'LOAD_QUESTION',
-//     payload: {}
-// });
+export const loadQuestion = (firstQ) => ({ 
+    type: 'LOAD_QUESTION',
+    payload: firstQ
+});
 
 export const endQuestion = (correctAnswer) => ({ 
     type: 'END_QUESTION',
