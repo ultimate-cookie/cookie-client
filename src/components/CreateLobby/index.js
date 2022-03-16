@@ -16,8 +16,15 @@ const CreateLobby = ({ socket }) => {
   const onSubmitEvent = (e) => {
     e.preventDefault();
 
-    // get lobby name and username
+    // send lobby name and username
     socket.emit("joinLobby", { username, room });
+    // send quiz info
+    socket.emit("createLobby", {
+      category: 11,
+      difficulty: "medium",
+      amount: 10,
+      type: "multiple",
+    });
 
     setRedirect(true);
   };

@@ -23,6 +23,10 @@ function App() {
     console.log(str);
     // append new users to playerList
   });
+  socket.on("quizQuestions", (str) => {
+    console.log(str);
+    // create quiz out of this data
+  });
   return (
     <>
       <TopBar />
@@ -39,7 +43,7 @@ function App() {
             <JoinLobby />
           </Route>
           <Route path="/lobby">
-            <PlayerList />
+            <PlayerList socket={socket} />
           </Route>
           <Route path="/play">
             <Quiz />
