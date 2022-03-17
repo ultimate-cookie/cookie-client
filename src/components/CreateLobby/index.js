@@ -22,10 +22,8 @@ const CreateLobby = ({ socket }) => {
     socket.emit("createLobby", {
       category: 11,
       difficulty: "medium",
-      amount: 10,
-      type: "multiple",
+      amount: 10
     });
-
     setRedirect(true);
   };
 
