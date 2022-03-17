@@ -5,7 +5,7 @@ import {
   Text,
   RadioGroup,
   Radio,
-  Stack,
+  Stack
 } from "@chakra-ui/react";
 
 const Quiz = ({ questions }) => {
@@ -40,7 +40,7 @@ const Quiz = ({ questions }) => {
       const thisQ = questions[property];
       const options = shuffleArray([
         thisQ.correct_answer,
-        ...thisQ.incorrect_answers,
+        ...thisQ.incorrect_answers
       ]);
       questionList.push(
         <Container key={property}>
@@ -55,11 +55,8 @@ const Quiz = ({ questions }) => {
   };
   return (
     <>
-      <Text>Question 1: What is the true answer?</Text>
-      <Button>(A) True</Button>
-      <Button>(B) False</Button>
-      <Button>Submit</Button>
       {renderQuestions()}
+      <Button>Submit</Button>
     </>
   );
 };
