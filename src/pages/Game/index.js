@@ -1,10 +1,11 @@
-import React from 'react';
-import { Quiz } from '../../components';
+import React from "react";
+import { Quiz } from "../../components";
 
-const Game = () => {
-return(
-<>
-<Quiz />
-</>
-)};
+const Game = ({ questions }) => {
+  return (
+    <>
+      <Quiz questions={questions} />
+    </>
+  );
+};
 export default Game;
