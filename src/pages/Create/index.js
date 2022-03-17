@@ -7,7 +7,6 @@ return(
 <>
 <Center>
   <CreateLobby />
-  <QuizDetails />
 </Center>
 </>
 )};
