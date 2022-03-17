@@ -1,20 +1,25 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { JoinButton } from "../index";
 import { FormControl, FormLabel, Input, Center } from "@chakra-ui/react";
 import { Container, Heading } from "@chakra-ui/layout";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
-const JoinLobby = () => {
+const JoinLobby = ({ socket }) => {
   const [username, setUsername] = useState("");
   const [roomName, setRoomName] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
   const onSubmitEvent = (e) => {
     e.preventDefault();
-    console.log("this is the user", username)
-    console.log("this is the room name" , roomName)
-  }
+    console.log("this is the user", username);
+    console.log("this is the room name", roomName);
+    socket.emit("joinLobby", { username, roomName });
+    setRedirect(true);
+  };
   return (
     <>
+      {redirect ? <Redirect to="/lobby" /> : undefined}
       <Center mt={10}>
         <Container
           id="join"
@@ -51,9 +56,7 @@ const JoinLobby = () => {
                 bg="#ffd0d0"
               />
               <Center>
-                  <JoinButton />
-                <Link to="/lobby">
-                </Link>
+                <JoinButton />
               </Center>
             </FormControl>
           </form>

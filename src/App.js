@@ -40,7 +40,7 @@ function App() {
             <QuizDetails />
           </Route>
           <Route path="/join">
-            <JoinLobby />
+            <JoinLobby socket={socket} />
           </Route>
           <Route path="/lobby">
             <PlayerList socket={socket} />
