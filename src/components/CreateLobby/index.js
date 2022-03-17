@@ -42,10 +42,10 @@ const CreateLobby = ({ socket }) => {
           mt="10"
         >
           <Center>
-            <Heading>Create Lobby</Heading>
+            <Heading p={3}>Create Lobby</Heading>
           </Center>
           <form onSubmit={(e) => onSubmitEvent(e)}>
-            <FormControl>
+            <FormControl p={6}>
               <FormLabel htmlFor="username"></FormLabel>
               <Input
                 onChange={(e) => setUsername(e.target.value)}
@@ -55,13 +55,6 @@ const CreateLobby = ({ socket }) => {
                 placeholder="Username"
                 bg="#ffd0d0"
               />
-              {/* <FormLabel htmlFor="password"></FormLabel>
-            <Input
-              isRequired
-              className="password"
-              placeholder="Password"
-              bg="#ffd0d0"
-            /> */}
               <FormLabel htmlFor="lobbyname"></FormLabel>
               <Input
                 onChange={(e) => setRoom(e.target.value)}
@@ -71,7 +64,7 @@ const CreateLobby = ({ socket }) => {
                 placeholder="Lobby Name"
                 bg="#ffd0d0"
               />
-              <Center>
+              <Center pt={8}>
                 <CreateButton />
               </Center>
             </FormControl>
