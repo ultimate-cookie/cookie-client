@@ -64,7 +64,6 @@ const CreateLobby = ({ socket }) => {
                 placeholder="Lobby Name"
                 bg="#ffd0d0"
               />
-             
                 <FormLabel htmlFor='topics'></FormLabel>
                 <Select id='topics' placeholder='Pick a topic!' bg="#ffd0d0">
                   <option>All</option>

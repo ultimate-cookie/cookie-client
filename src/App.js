@@ -9,12 +9,11 @@ import {
   Roundup,
   JoinLobby,
   PlayerList,
-  Quiz,
   DarkMode
 } from "./components";
 // import { DarkMode } from "@chakra-ui/react";
 
-import { Home, Create } from './pages'
+import { Home, Create, Game } from './pages'
 
 
 const socket = io("http://localhost:7000");
@@ -46,7 +45,7 @@ function App() {
             <PlayerList socket={socket} />
           </Route>
           <Route path="/play">
-            <Quiz />
+            <Game />
           </Route>
           <Route path="/endScreen">
             <Roundup />
