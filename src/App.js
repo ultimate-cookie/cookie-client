@@ -11,7 +11,6 @@ import {
 import { io } from "socket.io-client";
 
 import { TopBar, Roundup, JoinLobby, PlayerList, DarkMode } from "./components";
-// import { DarkMode } from "@chakra-ui/react";
 
 import { Home, Create, Game } from "./pages";
 

@@ -1,12 +1,6 @@
 import React from "react";
 import { CreateButton } from "../index";
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Center,
-  Select
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Center, Select } from "@chakra-ui/react";
 import { Container, Heading, Text } from "@chakra-ui/layout";
 import { Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -106,6 +100,7 @@ const CreateLobby = ({ socket }) => {
                 placeholder="Lobby Name"
                 bg="#ffd0d0"
               />
+<<<<<<< HEAD
               <FormLabel htmlFor="topics"></FormLabel>
               <Select
                 id="topics"
@@ -141,6 +136,20 @@ const CreateLobby = ({ socket }) => {
               >
                 {renderAmounts()}
               </Select>
+=======
+                <FormLabel htmlFor='topics'></FormLabel>
+                <Select id='topics' placeholder='Pick a topic!' bg="#ffd0d0">
+                  <option>All</option>
+                </Select>
+                <FormLabel htmlFor='difficulty'></FormLabel>
+                <Select id='difficulty' placeholder='Select difficulty' bg="#ffd0d0">
+                  <option>All</option>
+                </Select>
+                  <FormLabel htmlFor='timelimit'></FormLabel>
+                <Select id='timelimit' placeholder='Timelimit?' bg="#ffd0d0">
+                  <option>All</option>
+                </Select>
+>>>>>>> 6cfded5f402e962bbef9209758ac3b56b86b7a98
               <Center pt={8}>
                 <CreateButton />
               </Center>
