@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { JoinButton } from "../index";
-import { FormControl, FormLabel, Input, Center } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Center,
+  useColorModeValue
+} from "@chakra-ui/react";
 import { Container, Heading } from "@chakra-ui/layout";
 import { Redirect } from "react-router-dom";
 
@@ -9,6 +15,8 @@ const JoinLobby = ({ socket }) => {
   const [roomName, setRoomName] = useState("");
   const [redirect, setRedirect] = useState(false);
 
+  const bg = useColorModeValue("#f78888", "#A16E83");
+
   const onSubmitEvent = (e) => {
     e.preventDefault();
     console.log("this is the user", username);
@@ -16,7 +24,6 @@ const JoinLobby = ({ socket }) => {
     socket.emit("joinLobby", { username, room: roomName });
     setRedirect(true);
   };
-
 
   return (
     <>
@@ -27,7 +34,7 @@ const JoinLobby = ({ socket }) => {
           w="600px"
           rounded="xl"
           boxShadow="lg"
-          bg="#f78888"
+          bg={bg}
           m="3"
           p="7"
           mt="10"

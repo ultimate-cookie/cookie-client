@@ -1,12 +1,6 @@
 import React from "react";
 import { CreateButton } from "../index";
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Center,
-  Select
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Center, Select } from "@chakra-ui/react";
 import { Container, Heading, Text } from "@chakra-ui/layout";
 import { Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -69,6 +63,8 @@ const CreateLobby = ({ socket }) => {
     setRedirect(true);
   };
 
+  const bg = useColorModeValue('#f78888', '#A16E83')
+
   return (
     <>
       {redirect ? <Redirect to="/lobby" /> : undefined}
@@ -78,7 +74,7 @@ const CreateLobby = ({ socket }) => {
           w="600px"
           rounded="xl"
           boxShadow="lg"
-          bg="#f78888"
+          bg={bg}
           m="3"
           p="7"
           mt="10"

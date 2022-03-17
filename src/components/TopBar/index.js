@@ -1,10 +1,27 @@
-import React from 'react';
+import React from "react";
+import {
+  Flex,
+  Image,
+  IconButton,
+  keyframes,
+  Spacer,
+  useColorMode,
+  useColorModeValue,
+  usePrefersReducedMotion
+} from "@chakra-ui/react";
+import { MoonIcon } from "@chakra-ui/icons";
+// import anime from "animejs/lib/anime.es.js";
 
-import { Box } from '@chakra-ui/layout';
-import { Image, keyframes, useColorModeValue, usePrefersReducedMotion } from '@chakra-ui/react'
+import logo from "./cookie.png";
+import { DarkMode } from "../";
 
-import logo from './cookie.png'
-
+// const newAnime = anime({
+//   targets: ".pic",
+//   translateX: 100,
+//   duration: 1000,
+//   easing: "linear",
+//   direction: 'alternate'
+// });
 
 const spin = keyframes`
   from { 
@@ -13,20 +30,33 @@ const spin = keyframes`
   to { 
     transform: rotate(360deg); 
   }
-`
+`;
 
-const animation = `${spin} infinite 10s linear`
+// const travel = keyframes`
+// 0%, 100% { left: 100% }
+// 50% { left: 0% }
+// `
+
+const animation = ` ${spin} infinite 10s alternate linear`;
 
 const TopBar = () => {
+  const bg = useColorModeValue("#f78888", "#A16E83");
+  const { toggleColorMode } = useColorMode();
 
-  const bg = useColorModeValue('#f78888', '#A16E83')
-
-return(
-<>
-<Box bg={bg} w='100%' h='55px' boxShadow='lg'>
-  <Image boxSize={55} animation={animation} src={logo} />
-</Box>
-</>
-)};
+  return (
+    <>
+      <Flex bg={bg} w="100%" h="55px" boxShadow="lg">
+        <Image boxSize={55} className="pic" animation={animation} src={logo} />
+        <Spacer />
+        <IconButton
+          icon={<MoonIcon />}
+          variant="outline"
+          onClick={toggleColorMode}
+          mt={2}
+          mx={4}
+        />
+      </Flex>
+    </>
+  );
+};
 export default TopBar;
-
