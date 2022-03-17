@@ -1,3 +1,4 @@
+import { Center, Container, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { Player, StartButton } from "../index";
@@ -11,8 +12,24 @@ const PlayerList = ({ socket }) => {
   return (
     <>
       {redirect ? <Redirect to="/play" /> : undefined}
-      <Player />
-      <StartButton startQuiz={startQuiz} />
+      <Center mt={10}>
+        <Container id="play"
+          w="600px"
+          rounded="xl"
+          boxShadow="lg"
+          bg="#f78888"
+          m="3"
+          p="7"
+          mt="10">
+            <Center>
+              <Heading p={3}>Player List</Heading>
+            </Center>
+          <Player />
+          <Center>
+            <StartButton startQuiz={startQuiz} />
+          </Center>
+        </Container>
+      </Center>
     </>
   );
 };

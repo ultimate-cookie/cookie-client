@@ -1,7 +1,7 @@
 import React from "react";
 import { CreateButton } from "../index";
-import { FormControl, FormLabel, Input, Center } from "@chakra-ui/react";
-import { Container, Heading } from "@chakra-ui/layout";
+import { FormControl, FormLabel, Input, Center, Select } from "@chakra-ui/react";
+import { Container, Heading, Text } from "@chakra-ui/layout";
 import { Redirect } from "react-router-dom";
 import { useState } from "react";
 import { quizReducer } from "../../reducers";
@@ -42,10 +42,10 @@ const CreateLobby = ({ socket }) => {
           mt="10"
         >
           <Center>
-            <Heading>Create Lobby</Heading>
+            <Heading p={3}>Create Lobby</Heading>
           </Center>
           <form onSubmit={(e) => onSubmitEvent(e)}>
-            <FormControl>
+            <FormControl p={6}>
               <FormLabel htmlFor="username"></FormLabel>
               <Input
                 onChange={(e) => setUsername(e.target.value)}
@@ -55,13 +55,6 @@ const CreateLobby = ({ socket }) => {
                 placeholder="Username"
                 bg="#ffd0d0"
               />
-              {/* <FormLabel htmlFor="password"></FormLabel>
-            <Input
-              isRequired
-              className="password"
-              placeholder="Password"
-              bg="#ffd0d0"
-            /> */}
               <FormLabel htmlFor="lobbyname"></FormLabel>
               <Input
                 onChange={(e) => setRoom(e.target.value)}
@@ -71,7 +64,19 @@ const CreateLobby = ({ socket }) => {
                 placeholder="Lobby Name"
                 bg="#ffd0d0"
               />
-              <Center>
+                <FormLabel htmlFor='topics'></FormLabel>
+                <Select id='topics' placeholder='Pick a topic!' bg="#ffd0d0">
+                  <option>All</option>
+                </Select>
+                <FormLabel htmlFor='difficulty'></FormLabel>
+                <Select id='difficulty' placeholder='Select difficulty' bg="#ffd0d0">
+                  <option>All</option>
+                </Select>
+                  <FormLabel htmlFor='timelimit'></FormLabel>
+                <Select id='timelimit' placeholder='Timelimit?' bg="#ffd0d0">
+                  <option>All</option>
+                </Select>
+              <Center pt={8}>
                 <CreateButton />
               </Center>
             </FormControl>
