@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box } from '@chakra-ui/layout';
-import { Image, keyframes, usePrefersReducedMotion } from '@chakra-ui/react'
+import { Image, keyframes, useColorModeValue, usePrefersReducedMotion } from '@chakra-ui/react'
 
 import logo from './cookie.png'
 
@@ -18,9 +18,12 @@ const spin = keyframes`
 const animation = `${spin} infinite 10s linear`
 
 const TopBar = () => {
+
+  const bg = useColorModeValue('#f78888', '#A16E83')
+
 return(
 <>
-<Box bg="#f78888" w='100%' h='55px' boxShadow='lg'>
+<Box bg={bg} w='100%' h='55px' boxShadow='lg'>
   <Image boxSize={55} animation={animation} src={logo} />
 </Box>
 </>
