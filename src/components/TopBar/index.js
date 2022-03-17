@@ -21,7 +21,7 @@ const TopBar = () => {
 return(
 <>
 <Box bg="#f78888" w='100%' h='55px' boxShadow='lg'>
-  <Image boxSize={55} animation={animation} src={logo} w='' />
+  <Image boxSize={55} animation={animation} src={logo} />
 </Box>
 </>
 )};

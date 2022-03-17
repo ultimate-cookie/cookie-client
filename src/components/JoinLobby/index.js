@@ -17,6 +17,8 @@ const JoinLobby = ({ socket }) => {
     socket.emit("joinLobby", { username, roomName });
     setRedirect(true);
   };
+
+
   return (
     <>
       {redirect ? <Redirect to="/lobby" /> : undefined}
@@ -32,10 +34,10 @@ const JoinLobby = ({ socket }) => {
           mt="10"
         >
           <Center>
-            <Heading>Join Lobby</Heading>
+            <Heading p={3}>Join Lobby</Heading>
           </Center>
           <form onSubmit={(e) => onSubmitEvent(e)}>
-            <FormControl>
+            <FormControl p={6}>
               <FormLabel htmlFor="username"></FormLabel>
               <Input
                 onChange={(e) => setUsername(e.target.value)}
@@ -45,7 +47,6 @@ const JoinLobby = ({ socket }) => {
                 placeholder="Username"
                 bg="#ffd0d0"
               />
-              <FormLabel htmlFor="password"></FormLabel>
               <FormLabel htmlFor="lobbyname"></FormLabel>
               <Input
                 onChange={(e) => setRoomName(e.target.value)}
@@ -55,8 +56,10 @@ const JoinLobby = ({ socket }) => {
                 placeholder="Lobby Name"
                 bg="#ffd0d0"
               />
-              <Center>
-                <JoinButton />
+              <Center pt={8}>
+                <Link to="/lobby">
+                  <JoinButton />
+                </Link>
               </Center>
             </FormControl>
           </form>

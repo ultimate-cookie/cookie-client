@@ -31,8 +31,8 @@ function App() {
   });
   return (
     <>
-    {/* <DarkMode /> */}
       <TopBar />
+    {/* <DarkMode /> */}
       <Router>
         <Switch>
           <Route exact path="/">
