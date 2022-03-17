@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import { Switch, Route } from 'react-router-dom';
-import "@chakra-ui/react";
+//import "@chakra-ui/react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -38,6 +38,7 @@ function App() {
   });
   return (
     <>
+<<<<<<< HEAD
       <TopBar />
       <DarkMode />
       <Router>
@@ -64,6 +65,35 @@ function App() {
           </Route>
         </Switch>
       </Router>
+=======
+      <div id='root' style={{backgroundColor: '#ffe4d5'}}>
+        <TopBar />
+        {/* <DarkMode /> */}
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Welcome />
+            </Route>
+            <Route path="/create">
+              <CreateLobby />
+              <QuizDetails />
+            </Route>
+            <Route path="/join">
+              <JoinLobby />
+            </Route>
+            <Route path="/lobby">
+              <PlayerList />
+            </Route>
+            <Route path="/play">
+              <Quiz />
+            </Route>
+            <Route path="/endScreen">
+              <Roundup />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+>>>>>>> dd392ff (welcome page complete)
     </>
   );
 }

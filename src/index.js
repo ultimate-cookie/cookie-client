@@ -10,7 +10,7 @@ ReactDOM.render(
   <ChakraProvider>
     <Router>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <App />
+      <App style="background-color: #ffe4d5" />
     </Router>
   </ChakraProvider>,
   document.getElementById("root")
