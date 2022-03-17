@@ -8,8 +8,8 @@ const initState = {
     number_of_questions: 10,
     score: 0,
     question_index: 0,
-    loading: false
-
+    loading: false,
+    error: false
  };
 
  const quizReducer = (state=initState, action) => {
@@ -28,7 +28,7 @@ const initState = {
         }
         case 'GET_SCORE' :
             return {...state,
-                    action.payload.score
+                    score: action.payload.score
                 }
 
         case 'LOAD_QUESTION' :
@@ -67,8 +67,7 @@ const initState = {
 
         case 'SET_ERROR' : 
             return {...state,
-                    error: action.payload
-                    loading: false
+                    error: action.payload,
             }
 
 
