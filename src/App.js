@@ -21,7 +21,9 @@ import {
   Welcome,
   PlayerList,
   Quiz,
+  DarkMode
 } from "./components";
+// import { DarkMode } from "@chakra-ui/react";
 
 const socket = io("http://localhost:7000");
 function App() {
@@ -37,6 +39,7 @@ function App() {
   return (
     <>
       <TopBar />
+      <DarkMode />
       <Router>
         {questions.length > 0 ? <Redirect to="/play" /> : undefined}
         <Switch>
