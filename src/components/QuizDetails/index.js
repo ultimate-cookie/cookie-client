@@ -9,9 +9,9 @@ return(
 <Center mt={10}>
   <Container w="600px" rounded='xl' boxShadow='lg' bg="#f78888" m='3' p='7' mt='10'>
     <Center> 
-      <Heading>Quiz Details</Heading>
+      <Heading p={3}>Quiz Details</Heading>
     </Center>
-    <FormControl>
+    <FormControl p={4}>
       <FormLabel htmlFor='topics'></FormLabel>
       <Select id='topics' placeholder='Pick a topic!' bg="#ffd0d0">
         <option>All</option>
@@ -24,7 +24,7 @@ return(
       <Select id='timelimit' placeholder='Timelimit?' bg="#ffd0d0">
         <option>All</option>
       </Select>
-      <Center> 
+      <Center pt={8}> 
         <CreateButton />
       </Center>
     </FormControl>

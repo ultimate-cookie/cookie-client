@@ -56,9 +56,7 @@ const JoinLobby = ({ socket }) => {
                 bg="#ffd0d0"
               />
               <Center pt={8}>
-                <Link to="/lobby">
-                  <JoinButton />
-                </Link>
+                <JoinButton />
               </Center>
             </FormControl>
           </form>

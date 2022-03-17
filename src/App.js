@@ -11,19 +11,17 @@ import {
 import { io } from "socket.io-client";
 
 import {
-  // JoinButton,
-  // CreateButton,
   TopBar,
   Roundup,
-  CreateLobby,
   JoinLobby,
-  QuizDetails,
-  Welcome,
   PlayerList,
   Quiz,
   DarkMode
 } from "./components";
 // import { DarkMode } from "@chakra-ui/react";
+
+import { Home, Create } from './pages'
+
 
 const socket = io("http://localhost:7000");
 function App() {
@@ -44,11 +42,10 @@ function App() {
         {questions.length > 0 ? <Redirect to="/play" /> : undefined}
         <Switch>
           <Route exact path="/">
-            <Welcome />
+            <Home />
           </Route>
           <Route path="/create">
-            <CreateLobby socket={socket} />
-            <QuizDetails />
+            <Create socket={socket} />
           </Route>
           <Route path="/join">
             <JoinLobby socket={socket} />
