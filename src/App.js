@@ -6,7 +6,7 @@ import {
   Switch,
   Route,
   Link,
-  Redirect,
+  Redirect
 } from "react-router-dom";
 import { io } from "socket.io-client";
 
@@ -38,7 +38,6 @@ function App() {
   });
   return (
     <>
-<<<<<<< HEAD
       <TopBar />
       <DarkMode />
       <Router>
@@ -65,35 +64,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-=======
-      <div id='root' style={{backgroundColor: '#ffe4d5'}}>
-        <TopBar />
-        {/* <DarkMode /> */}
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Welcome />
-            </Route>
-            <Route path="/create">
-              <CreateLobby />
-              <QuizDetails />
-            </Route>
-            <Route path="/join">
-              <JoinLobby />
-            </Route>
-            <Route path="/lobby">
-              <PlayerList />
-            </Route>
-            <Route path="/play">
-              <Quiz />
-            </Route>
-            <Route path="/endScreen">
-              <Roundup />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
->>>>>>> dd392ff (welcome page complete)
     </>
   );
 }
