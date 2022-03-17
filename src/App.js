@@ -17,17 +17,16 @@ import {
   Quiz,
 } from "./components";
 
+const socket = io("http://localhost:7000");
 function App() {
-  const connect = () => {
-    const socket = io("http://localhost:7000");
-  };
-
-  useEffect(() => {
-    console.log("useEffect before");
-    connect();
-    console.log("useEffect after");
-  }, []);
-
+  socket.on("playerList", (str) => {
+    console.log(str);
+    // append new users to playerList
+  });
+  socket.on("quizQuestions", (str) => {
+    console.log(str);
+    // create quiz out of this data
+  });
   return (
     <>
       <TopBar />
@@ -37,14 +36,14 @@ function App() {
             <Welcome />
           </Route>
           <Route path="/create">
-            <CreateLobby />
+            <CreateLobby socket={socket} />
             <QuizDetails />
           </Route>
           <Route path="/join">
-            <JoinLobby />
+            <JoinLobby socket={socket} />
           </Route>
           <Route path="/lobby">
-            <PlayerList />
+            <PlayerList socket={socket} />
           </Route>
           <Route path="/play">
             <Quiz />

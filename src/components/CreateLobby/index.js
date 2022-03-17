@@ -2,11 +2,34 @@ import React from "react";
 import { CreateButton } from "../index";
 import { FormControl, FormLabel, Input, Center } from "@chakra-ui/react";
 import { Container, Heading } from "@chakra-ui/layout";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { useState } from "react";
+import { quizReducer } from "../../reducers";
+import { render } from "react-dom";
 
-const CreateLobby = () => {
+const CreateLobby = ({ socket }) => {
+  const [room, setRoom] = useState("");
+  const [username, setUsername] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  // create lobby event listener
+  const onSubmitEvent = (e) => {
+    e.preventDefault();
+
+    // send lobby name and username
+    socket.emit("joinLobby", { username, room });
+    // send quiz info
+    socket.emit("createLobby", {
+      category: 11,
+      difficulty: "medium",
+      amount: 10
+    });
+    setRedirect(true);
+  };
+
   return (
     <>
+      {redirect ? <Redirect to="/lobby" /> : undefined}
       <Center mt={10}>
         <Container
           id="create"
@@ -21,34 +44,38 @@ const CreateLobby = () => {
           <Center>
             <Heading>Create Lobby</Heading>
           </Center>
-          <FormControl>
-            <FormLabel htmlFor="username"></FormLabel>
-            <Input
-              isRequired
-              className="username"
-              placeholder="Username"
-              bg="#ffd0d0"
-            />
-            <FormLabel htmlFor="password"></FormLabel>
+          <form onSubmit={(e) => onSubmitEvent(e)}>
+            <FormControl>
+              <FormLabel htmlFor="username"></FormLabel>
+              <Input
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                isRequired
+                className="username"
+                placeholder="Username"
+                bg="#ffd0d0"
+              />
+              {/* <FormLabel htmlFor="password"></FormLabel>
             <Input
               isRequired
               className="password"
               placeholder="Password"
               bg="#ffd0d0"
-            />
-            <FormLabel htmlFor="lobbyname"></FormLabel>
-            <Input
-              isRequired
-              className="lobbyname"
-              placeholder="Lobby Name"
-              bg="#ffd0d0"
-            />
-            <Center>
-              <Link to="/lobby">
+            /> */}
+              <FormLabel htmlFor="lobbyname"></FormLabel>
+              <Input
+                onChange={(e) => setRoom(e.target.value)}
+                value={room}
+                isRequired
+                className="lobbyname"
+                placeholder="Lobby Name"
+                bg="#ffd0d0"
+              />
+              <Center>
                 <CreateButton />
-              </Link>
-            </Center>
-          </FormControl>
+              </Center>
+            </FormControl>
+          </form>
         </Container>
       </Center>
     </>

@@ -9,6 +9,7 @@ const JoinButton = () => {
         bg="#ffd0d0"
         m="3"
         p="4"
+        type="submit"
       >
         Join Lobby
       </Button>
