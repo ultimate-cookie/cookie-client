@@ -1,7 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import { Switch, Route } from 'react-router-dom';
 import "@chakra-ui/react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import { io } from "socket.io-client";
 
 import {
@@ -19,18 +25,20 @@ import {
 
 const socket = io("http://localhost:7000");
 function App() {
+  const [questions, setQuestions] = useState([]);
   socket.on("playerList", (str) => {
-    console.log(str);
     // append new users to playerList
   });
-  socket.on("quizQuestions", (str) => {
-    console.log(str);
+  socket.on("quizQuestions", (newQuiz) => {
+    console.log(newQuiz);
+    setQuestions(newQuiz);
     // create quiz out of this data
   });
   return (
     <>
       <TopBar />
       <Router>
+        {questions.length > 0 ? <Redirect to="/play" /> : undefined}
         <Switch>
           <Route exact path="/">
             <Welcome />
@@ -46,7 +54,7 @@ function App() {
             <PlayerList socket={socket} />
           </Route>
           <Route path="/play">
-            <Quiz />
+            <Quiz questions={questions} />
           </Route>
           <Route path="/endScreen">
             <Roundup />
