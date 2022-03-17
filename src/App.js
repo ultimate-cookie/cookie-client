@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 // import { Switch, Route } from 'react-router-dom';
-import "@chakra-ui/react";
+// import {  } "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { io } from "socket.io-client";
 
@@ -15,7 +15,9 @@ import {
   Welcome,
   PlayerList,
   Quiz,
+  DarkMode
 } from "./components";
+// import { DarkMode } from "@chakra-ui/react";
 
 const socket = io("http://localhost:7000");
 function App() {
@@ -29,6 +31,7 @@ function App() {
   });
   return (
     <>
+    {/* <DarkMode /> */}
       <TopBar />
       <Router>
         <Switch>
