@@ -10,18 +10,10 @@ import {
 } from "react-router-dom";
 import { io } from "socket.io-client";
 
-import {
-  TopBar,
-  Roundup,
-  JoinLobby,
-  PlayerList,
-  Quiz,
-  DarkMode
-} from "./components";
+import { TopBar, Roundup, JoinLobby, PlayerList, DarkMode } from "./components";
 // import { DarkMode } from "@chakra-ui/react";
 
-import { Home, Create } from './pages'
-
+import { Home, Create, Game } from "./pages";
 
 const socket = io("http://localhost:7000");
 function App() {
@@ -54,7 +46,7 @@ function App() {
             <PlayerList socket={socket} />
           </Route>
           <Route path="/play">
-            <Quiz questions={questions} />
+            <Game questions={questions} />
           </Route>
           <Route path="/endScreen">
             <Roundup />
