@@ -4,7 +4,7 @@ describe('quiz reducer', () => {
 
     test('it returns the initial state', () => {
            const initReturn = quizReducer(undefined, {type: '@@INIT'})             
-        expect(quizReducer(initReturn).toEqual({
+        expect(quizReducer(initReturn)).toEqual({
             "category": "",
             "difficulty": "", 
             "loading": false, 
@@ -15,7 +15,7 @@ describe('quiz reducer', () => {
             "room_size": "", 
             "score": 0, 
             "time_limit": -1
-        })
+        });
     })
 
     // test('it returns the correct settings for a quiz', () => {
