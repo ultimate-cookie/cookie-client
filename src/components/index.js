@@ -1,6 +1,5 @@
 export { default as CreateButton } from "./CreateButton";
 export { default as JoinButton } from "./JoinButton";
-export { default as DarkMode } from './DarkMode'
 export { default as CreateLobby } from "./CreateLobby";
 export { default as Player } from "./Player";
 export { default as StartButton } from "./StartButton";

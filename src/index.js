@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import theme from "./theme";
 
 ReactDOM.render(
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
     <Router>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <App style="background-color: #ffe4d5" />

@@ -5,7 +5,8 @@ import {
   FormLabel,
   Input,
   Center,
-  Select
+  Select,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { Container, Heading, Text } from "@chakra-ui/layout";
 import { Redirect } from "react-router-dom";
@@ -69,6 +70,9 @@ const CreateLobby = ({ socket }) => {
     setRedirect(true);
   };
 
+  const bg = useColorModeValue("#f78888", "#A16E83");
+  const input = useColorModeValue("#ffd0d0", "#D1A3B6");
+
   return (
     <>
       {redirect ? <Redirect to="/lobby" /> : undefined}
@@ -78,7 +82,7 @@ const CreateLobby = ({ socket }) => {
           w="600px"
           rounded="xl"
           boxShadow="lg"
-          bg="#f78888"
+          bg={bg}
           m="3"
           p="7"
           mt="10"
@@ -95,7 +99,7 @@ const CreateLobby = ({ socket }) => {
                 isRequired
                 className="username"
                 placeholder="Username"
-                bg="#ffd0d0"
+                bg={input}
               />
               <FormLabel htmlFor="lobbyname"></FormLabel>
               <Input
@@ -104,13 +108,13 @@ const CreateLobby = ({ socket }) => {
                 isRequired
                 className="lobbyname"
                 placeholder="Lobby Name"
-                bg="#ffd0d0"
+                bg={input}
               />
               <FormLabel htmlFor="topics"></FormLabel>
               <Select
                 id="topics"
                 placeholder="Pick a topic!"
-                bg="#ffd0d0"
+                bg={input}
                 onChange={(e) => setCategory(e.target.value)}
               >
                 {renderTopics()}
@@ -119,24 +123,24 @@ const CreateLobby = ({ socket }) => {
               <Select
                 id="difficulty"
                 placeholder="Select difficulty"
-                bg="#ffd0d0"
+                bg={input}
                 onChange={(e) => setDifficulty(e.target.value)}
               >
                 <option key="0" value="easy">
-                  easy
+                  Easy
                 </option>
                 <option key="1" value="medium">
-                  medium
+                  Medium
                 </option>
                 <option key="2" value="hard">
-                  hard
+                  Hard
                 </option>
               </Select>
               <FormLabel htmlFor="amount"></FormLabel>
               <Select
                 id="amount"
                 placeholder="Number of Questions?"
-                bg="#ffd0d0"
+                bg={input}
                 onChange={(e) => setAmount(e.target.value)}
               >
                 {renderAmounts()}

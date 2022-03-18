@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import { io } from "socket.io-client";
 
-import { TopBar, Roundup, JoinLobby, PlayerList, DarkMode } from "./components";
+import { TopBar, Roundup, JoinLobby, PlayerList } from "./components";
 
 import { Home, Create, Game } from "./pages";
 
@@ -28,7 +28,6 @@ function App() {
   return (
     <>
       <TopBar />
-      <DarkMode />
       <Router>
         {questions.length > 0 ? <Redirect to="/play" /> : undefined}
         <Switch>
