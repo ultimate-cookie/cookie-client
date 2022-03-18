@@ -65,7 +65,8 @@ const CreateLobby = ({ socket }) => {
     socket.emit("createLobby", {
       category,
       difficulty,
-      amount
+      amount,
+      room
     });
     setRedirect(true);
   };
