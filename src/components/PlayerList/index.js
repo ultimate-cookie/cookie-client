@@ -1,7 +1,7 @@
 import { Box, Center, Container, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { Player, StartButton } from "../index";
+import { StartButton } from "../index";
 import { SimpleGrid, Text, useColorModeValue } from "@chakra-ui/react";
 
 const PlayerList = ({ socket }) => {
@@ -20,9 +20,7 @@ const PlayerList = ({ socket }) => {
     for (const player of players) {
       playerList.push(
         <Box bg={person}>
-          <Text key={player}>
-            {player}
-          </Text>
+          <Text key={player}>{player}</Text>
         </Box>
       );
     }
@@ -50,7 +48,7 @@ const PlayerList = ({ socket }) => {
             <Heading p={3}>Player List</Heading>
           </Center>
           <SimpleGrid columns={2} spacing={5}>
-            {renderPlayers()} 
+            {renderPlayers()}
           </SimpleGrid>
           <Center>
             <StartButton startQuiz={startQuiz} />
