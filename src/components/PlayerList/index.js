@@ -2,7 +2,7 @@ import { Center, Container, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { Player, StartButton } from "../index";
-import { Text } from "@chakra-ui/react";
+import { Text, useColorModeValue } from "@chakra-ui/react";
 
 const PlayerList = ({ socket }) => {
   const [redirect, setRedirect] = useState(false);
@@ -27,6 +27,9 @@ const PlayerList = ({ socket }) => {
     return <>{playerList}</>;
   };
 
+  const bg = useColorModeValue("#f78888", "#A16E83");
+
+
   return (
     <>
       {redirect ? <Redirect to="/play" /> : undefined}
@@ -36,7 +39,7 @@ const PlayerList = ({ socket }) => {
           w="600px"
           rounded="xl"
           boxShadow="lg"
-          bg="#f78888"
+          bg={bg}
           m="3"
           p="7"
           mt="10"

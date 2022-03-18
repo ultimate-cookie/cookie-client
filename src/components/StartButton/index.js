@@ -1,12 +1,15 @@
 import React from 'react';
-import { Button } from '@chakra-ui/react';
+import { Button, useColorModeValue } from '@chakra-ui/react';
 
 const StartButton = ({startQuiz}) => {
+
+  const bg = useColorModeValue('#ffd0d0', '#D1A3B6')
+
   return (
     <>
       <Button
         size='lg' 
-        bg='#ffd0d0' 
+        bg={bg} 
         m='3' 
         p='4' 
         onClick={startQuiz}

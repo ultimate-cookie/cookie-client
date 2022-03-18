@@ -16,6 +16,8 @@ const JoinLobby = ({ socket }) => {
   const [redirect, setRedirect] = useState(false);
 
   const bg = useColorModeValue("#f78888", "#A16E83");
+  const input = useColorModeValue('#ffd0d0', '#D1A3B6')
+
 
   const onSubmitEvent = (e) => {
     e.preventDefault();
@@ -51,7 +53,7 @@ const JoinLobby = ({ socket }) => {
                 isRequired
                 className="username"
                 placeholder="Username"
-                bg="#ffd0d0"
+                bg={input}
               />
               <FormLabel htmlFor="lobbyname"></FormLabel>
               <Input
@@ -60,7 +62,7 @@ const JoinLobby = ({ socket }) => {
                 isRequired
                 className="lobbyname"
                 placeholder="Lobby Name"
-                bg="#ffd0d0"
+                bg={input}
               />
               <Center pt={8}>
                 <JoinButton />
