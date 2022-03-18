@@ -7,7 +7,8 @@ import {
   Radio,
   Stack,
   Center,
-  useColorModeValue
+  useColorModeValue,
+  Heading
 } from "@chakra-ui/react";
 const Quiz = ({ questions }) => {
   const [quiz, setQuiz] = useState({});
@@ -57,13 +58,14 @@ const Quiz = ({ questions }) => {
             mt="10"
           >
             <Center>
-              <Text bg={input}>
+              <Heading align="center" w={450} p={4}>
                 Question {parseInt(property) + 1}: {thisQ.question}
-              </Text>
+              </Heading>
             </Center>
             <Center>
               <RadioGroup
-                bg={input}
+                fontWeight='bold'
+                m={5}
                 onChange={(e) => {
                   const thisArray = quiz;
                   thisArray[property] = e;
@@ -77,7 +79,16 @@ const Quiz = ({ questions }) => {
         </Center>
       );
     }
-    return <>{questionList}</>;
+    return (
+      <>
+        {questionList}
+        <Center mt={10}>
+          <Button m={3} p={4} bg={input} onClick={submitResults}>
+            Submit
+          </Button>
+        </Center>
+      </>
+    );
   };
 
   const submitResults = () => {
@@ -94,31 +105,28 @@ const Quiz = ({ questions }) => {
   };
 
   const bg = useColorModeValue("#f78888", "#A16E83");
-  const input = useColorModeValue('#ffd0d0', '#D1A3B6')
 
   return (
     <>
       {results ? (
         <Center mt={10}>
-        <Container
-          id="create"
-          w="600px"
-          rounded="xl"
-          boxShadow="lg"
-          bg={bg}
-          m="3"
-          p="7"
-          mt="10"
-        >
-        <Text>{results}</Text>
-
-        </Container>
-       </Center>
+          <Container
+            id="create"
+            w="600px"
+            rounded="xl"
+            boxShadow="lg"
+            bg={bg}
+            m="3"
+            p="7"
+            mt="10"
+          >
+            <Center> 
+              <Heading>{results}</Heading>
+            </Center>
+          </Container>
+        </Center>
       ) : (
-        <>
-          {renderQuestions()}
-          <Button bg={input} onClick={submitResults}>Submit</Button>
-        </>
+        <>{renderQuestions()}</>
       )}
     </>
   );
