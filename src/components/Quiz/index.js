@@ -92,14 +92,32 @@ const Quiz = ({ questions }) => {
     setResults(results);
     console.log(results);
   };
+
+  const bg = useColorModeValue("#f78888", "#A16E83");
+  const input = useColorModeValue('#ffd0d0', '#D1A3B6')
+
   return (
     <>
       {results ? (
+        <Center mt={10}>
+        <Container
+          id="create"
+          w="600px"
+          rounded="xl"
+          boxShadow="lg"
+          bg={bg}
+          m="3"
+          p="7"
+          mt="10"
+        >
         <Text>{results}</Text>
+
+        </Container>
+       </Center>
       ) : (
         <>
           {renderQuestions()}
-          <Button onClick={submitResults}>Submit</Button>
+          <Button bg={input} onClick={submitResults}>Submit</Button>
         </>
       )}
     </>
