@@ -14,7 +14,7 @@ import { TopBar, Roundup, JoinLobby, PlayerList, DarkMode } from "./components";
 
 import { Home, Create, Game } from "./pages";
 
-const socket = io("http://localhost:7000");
+const socket = io("http://18.130.211.172:7000");
 function App() {
   const [questions, setQuestions] = useState([]);
   socket.on("playerList", (str) => {
