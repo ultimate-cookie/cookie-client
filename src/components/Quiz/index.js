@@ -5,7 +5,9 @@ import {
   Text,
   RadioGroup,
   Radio,
-  Stack
+  Stack,
+  Center,
+  useColorModeValue
 } from "@chakra-ui/react";
 const Quiz = ({ questions }) => {
   const [quiz, setQuiz] = useState({});
@@ -33,6 +35,9 @@ const Quiz = ({ questions }) => {
 
   const renderQuestions = () => {
     const questionList = [];
+    const bg = useColorModeValue("#f78888", "#A16E83");
+    const input = useColorModeValue("#ffd0d0", "#D1A3B6");
+
     for (const property in questions) {
       const thisQ = questions[property];
       const options = shuffleArray([
@@ -40,20 +45,36 @@ const Quiz = ({ questions }) => {
         ...thisQ.incorrect_answers
       ]);
       questionList.push(
-        <Container key={property}>
-          <Text>
-            Question {parseInt(property) + 1}: {thisQ.question}
-          </Text>
-          <RadioGroup
-            onChange={(e) => {
-              const thisArray = quiz;
-              thisArray[property] = e;
-              setQuiz(thisArray);
-            }}
+        <Center mt={10}>
+          <Container
+            key={property}
+            w="600px"
+            rounded="xl"
+            boxShadow="lg"
+            bg={bg}
+            m="3"
+            p="7"
+            mt="10"
           >
-            {renderOptions(options, property)}
-          </RadioGroup>
-        </Container>
+            <Center>
+              <Text bg={input}>
+                Question {parseInt(property) + 1}: {thisQ.question}
+              </Text>
+            </Center>
+            <Center>
+              <RadioGroup
+                bg={input}
+                onChange={(e) => {
+                  const thisArray = quiz;
+                  thisArray[property] = e;
+                  setQuiz(thisArray);
+                }}
+              >
+                {renderOptions(options, property)}
+              </RadioGroup>
+            </Center>
+          </Container>
+        </Center>
       );
     }
     return <>{questionList}</>;
@@ -71,14 +92,32 @@ const Quiz = ({ questions }) => {
     setResults(results);
     console.log(results);
   };
+
+  const bg = useColorModeValue("#f78888", "#A16E83");
+  const input = useColorModeValue('#ffd0d0', '#D1A3B6')
+
   return (
     <>
       {results ? (
+        <Center mt={10}>
+        <Container
+          id="create"
+          w="600px"
+          rounded="xl"
+          boxShadow="lg"
+          bg={bg}
+          m="3"
+          p="7"
+          mt="10"
+        >
         <Text>{results}</Text>
+
+        </Container>
+       </Center>
       ) : (
         <>
           {renderQuestions()}
-          <Button onClick={submitResults}>Submit</Button>
+          <Button bg={input} onClick={submitResults}>Submit</Button>
         </>
       )}
     </>
