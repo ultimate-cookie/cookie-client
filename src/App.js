@@ -14,7 +14,7 @@ import { TopBar, Roundup, JoinLobby, PlayerList } from "./components";
 
 import { Home, Create, Game } from "./pages";
 
-const socket = io("http://18.130.211.172:7000");
+const socket = io("http://localhost:7000");
 function App() {
   const [questions, setQuestions] = useState([]);
   socket.on("playerList", (str) => {
@@ -22,6 +22,7 @@ function App() {
   });
   socket.on("quizQuestions", (newQuiz) => {
     console.log(newQuiz);
+    if (newQuiz === null) {newQuiz = [];}
     setQuestions(newQuiz);
     // create quiz out of this data
   });
