@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Container,
@@ -7,8 +7,9 @@ import {
   Radio,
   Stack
 } from "@chakra-ui/react";
-
 const Quiz = ({ questions }) => {
+  const [quiz, setQuiz] = useState({});
+  const [results, setResults] = useState("");
   // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array#answer-12646864
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -18,22 +19,18 @@ const Quiz = ({ questions }) => {
     return array;
   }
   // End SO
-  const renderOptions = (options) => {
+  const renderOptions = (options, property) => {
     const optionList = [];
-    console.log(options);
     for (const option of options) {
       optionList.push(
-        <Radio key={option} value={option}>
+        <Radio key={option} id={property + "_" + option} value={option}>
           {option}
         </Radio>
       );
     }
-    return (
-      <RadioGroup>
-        <Stack direction="row">{optionList}</Stack>
-      </RadioGroup>
-    );
+    return <Stack direction="row">{optionList}</Stack>;
   };
+
   const renderQuestions = () => {
     const questionList = [];
     for (const property in questions) {
@@ -47,16 +44,43 @@ const Quiz = ({ questions }) => {
           <Text>
             Question {parseInt(property) + 1}: {thisQ.question}
           </Text>
-          {renderOptions(options)}
+          <RadioGroup
+            onChange={(e) => {
+              const thisArray = quiz;
+              thisArray[property] = e;
+              setQuiz(thisArray);
+            }}
+          >
+            {renderOptions(options, property)}
+          </RadioGroup>
         </Container>
       );
     }
     return <>{questionList}</>;
   };
+
+  const submitResults = () => {
+    let score = 0;
+    const maxScore = questions.length;
+    for (const key in quiz) {
+      if (quiz[key] === questions[key].correct_answer) {
+        score++;
+      }
+    }
+    const results = `You scored ${score} out of ${maxScore}`;
+    setResults(results);
+    console.log(results);
+  };
   return (
     <>
-      {renderQuestions()}
-      <Button>Submit</Button>
+      {results ? (
+        <Text>{results}</Text>
+      ) : (
+        <>
+          {renderQuestions()}
+          <Button onClick={submitResults}>Submit</Button>
+        </>
+      )}
     </>
   );
 };
