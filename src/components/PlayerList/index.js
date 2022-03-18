@@ -19,10 +19,10 @@ const PlayerList = ({ socket }) => {
     const playerList = [];
     for (const player of players) {
       playerList.push(
-        <Box bg={person}>
-          <Text key={player}>
-            {player}
-          </Text>
+        <Box bg={person} rounded="xl">
+          <Center>
+            <Text key={player}>{player}</Text>
+          </Center>
         </Box>
       );
     }
@@ -49,10 +49,10 @@ const PlayerList = ({ socket }) => {
           <Center>
             <Heading p={3}>Player List</Heading>
           </Center>
-          <SimpleGrid columns={2} spacing={5}>
-            {renderPlayers()} 
+          <SimpleGrid p={6} columns={2} spacing={5}>
+            {renderPlayers()}
           </SimpleGrid>
-          <Center>
+          <Center pt={8}>
             <StartButton startQuiz={startQuiz} />
           </Center>
         </Container>

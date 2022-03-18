@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-// import { Switch, Route } from 'react-router-dom';
-//import "@chakra-ui/react";
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect
 } from "react-router-dom";
 import { io } from "socket.io-client";
@@ -14,7 +12,7 @@ import { TopBar, Roundup, JoinLobby, PlayerList } from "./components";
 
 import { Home, Create, Game } from "./pages";
 
-const socket = io("http://localhost:7000");
+const socket = io("http://localhost:7001");
 function App() {
   const [questions, setQuestions] = useState([]);
   socket.on("playerList", (str) => {

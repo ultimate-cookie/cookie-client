@@ -116,6 +116,7 @@ const CreateLobby = ({ socket }) => {
                 id="topics"
                 placeholder="Pick a topic!"
                 bg={input}
+                isRequired
                 onChange={(e) => setCategory(e.target.value)}
               >
                 {renderTopics()}
@@ -125,6 +126,7 @@ const CreateLobby = ({ socket }) => {
                 id="difficulty"
                 placeholder="Select difficulty"
                 bg={input}
+                isRequired
                 onChange={(e) => setDifficulty(e.target.value)}
               >
                 <option key="0" value="easy">
@@ -142,6 +144,7 @@ const CreateLobby = ({ socket }) => {
                 id="amount"
                 placeholder="Number of Questions?"
                 bg={input}
+                isRequired
                 onChange={(e) => setAmount(e.target.value)}
               >
                 {renderAmounts()}
